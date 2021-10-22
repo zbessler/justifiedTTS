@@ -1,0 +1,187 @@
+<Defaults>
+    <Text fontSize="9" fontStyle="Bold" color="#000000" />
+    <Text class="LargeText" width="40" fontSize="12" fontStyle="Bold" color="#000000" />
+    <Cell class="CalcRow" width="10" />
+    <Text class="CalculatedValues" width="40" fontSize="12" fontStyle="Bold" color="#000000" />
+    <Cell class="CountRow" width="150" />
+    <Row class="MenuBar" width="290" dontUseTableRowBackground="true" color="#24611E" />
+    <Button class="PMButton" width="10" height="10" rectAlignment="MiddleCenter" color="rgba(1,1,1,0)" />
+    <TableLayout class="ScoreTable" width="260" height="150" rectAlignment="UpperRight" offsetXY="-15 -40" cellPadding="5" />
+    <Row class="ScoreTableRow" preferredHeight="35"  height="35" dontUseTableRowBackground="true" color="#FFFFFF" />
+    <InputField class="UIInputField" width="1180" height="50" fontSize="12" fontStyle="Bold" colors="#FFFFFF|#dddddd|#FFFFFF|rgba(0.78,0.78,0.78,0.5)" />
+    <Text class="UIText" fontSize="12" fontStyle="Bold" color="#000000" />
+</Defaults>
+<Panel
+    id="ScoreSheetPanel"
+    class="WindowBorder"
+    width="290"
+    height="435"
+    rectAlignment="Middle"
+    showAnimation="Grow"
+    hideAnimation="Shrink"
+    returnToOriginalPositionWhenReleased="false"
+    color="#d357b7"
+    position="0 0 -50"
+    outline="#24611E"
+    outlineSize="2 -2"
+>
+    <Row class="MenuBar" >
+        <Text
+            id="WindowTitle"
+            text="Score Sheet"
+            class="UIText"
+            rectAlignment="UpperCenter"
+            alignment="LowerCenter"
+            width="230"
+            height="30"
+            offsetXY="0 15"
+        />
+    </Row>
+    <TableLayout class="ScoreTable">
+        <Row class="ScoreTableRow" color="#E4966F">
+            <Cell>
+                <Text text="Type" />
+            </Cell>
+            <Cell class="CountRow">
+                <Text id="P1" text="Count" />
+            </Cell>
+            <Cell class="CalcRow">
+                <Text id="P2" >Score</Text>
+            </Cell>
+        </Row>
+
+        <Row class="ScoreTableRow">
+            <Cell>
+                <Text>Unique Colors in row</Text>
+            </Cell>
+            <Cell class="CountRow">
+                <Button id="D_uniqueValue" class="PMButton" onClick="DecrementScore" text="-" />
+                <Text id="uniqueValue" class="UIInputField" characterValidation="Integer" text="0" onEndEdit="UpdateScore" />
+                <Button id="I_uniqueValue" class="PMButton" onClick="IncrementScore" text="+" />
+            </Cell>
+            <Cell class="CalcRow">
+                <Text>x1 =</Text>
+                <Text id="uniqueValue_calc" class="CalculatedValues" characterValidation="Integer" text="0" value="1" onEndEdit="UpdateScore" />
+            </Cell>
+        </Row>
+        <Row class="ScoreTableRow">
+            <Cell>
+                <Text>All 4 Color rows</Text>
+            </Cell>
+            <Cell class="CountRow">
+                <Button id="D_rainbowValue" class="PMButton" onClick="DecrementScore" text="-" />
+                <Text id="rainbowValue" class="UIInputField" characterValidation="Integer" text="0" onEndEdit="UpdateScore" />
+                <Button id="I_rainbowValue" class="PMButton" onClick="IncrementScore" text="+" />
+            </Cell>
+            <Cell class="CalcRow">
+                <Text>x4 =</Text>
+                <Text id="rainbowValue_calc" class="CalculatedValues" characterValidation="Integer" text="0" value="4" onEndEdit="UpdateScore" />
+            </Cell>
+        </Row>
+        <Row class="ScoreTableRow">
+            <Cell>
+                <Text>Mono color rows</Text>
+            </Cell>
+            <Cell class="CountRow">
+                <Button id="D_monoValue" class="PMButton" onClick="DecrementScore" text="-" />
+                <Text id="monoValue" class="UIInputField" characterValidation="Integer" text="0" onEndEdit="UpdateScore" />
+                <Button id="I_monoValue" class="PMButton" onClick="IncrementScore" text="+" />
+            </Cell>
+            <Cell class="CalcRow">
+                <Text>x2 =</Text>
+                <Text id="monoValue_calc" class="CalculatedValues" characterValidation="Integer" text="0" value="2" onEndEdit="UpdateScore" />
+            </Cell>
+        </Row>
+        <Row class="ScoreTableRow">
+            <Cell>
+                <Text>Completed Rows</Text>
+            </Cell>
+            <Cell class="CountRow">
+                <Button id="D_completedValue" class="PMButton" onClick="DecrementScore" text="-" />
+                <Text id="completedValue" class="UIInputField" characterValidation="Integer" text="0" onEndEdit="UpdateScore" />
+                <Button id="I_completedValue" class="PMButton" onClick="IncrementScore" text="+" />
+            </Cell>
+            <Cell class="CalcRow">
+                <Text>x2 =</Text>
+                <Text id="completedValue_calc" class="CalculatedValues" characterValidation="Integer" text="0" value="2" onEndEdit="UpdateScore" />
+            </Cell>
+        </Row>
+        <Row class="ScoreTableRow">
+            <Cell>
+                <Text>Blank Spaces</Text>
+            </Cell>
+            <Cell class="CountRow">
+                <Button id="D_blanksValue" class="PMButton" onClick="DecrementScore" text="-" />
+                <Text id="blanksValue" class="UIInputField" characterValidation="Integer" text="0" onEndEdit="UpdateScore" />
+                <Button id="I_blanksValue" class="PMButton" onClick="IncrementScore" text="+" />
+            </Cell>
+            <Cell class="CalcRow">
+                <Text>x -1 =</Text>
+                <Text id="blanksValue_calc" class="CalculatedValues" characterValidation="Integer" text="0" value="-1" onEndEdit="UpdateScore" />
+            </Cell>
+        </Row>
+
+        <Row class="ScoreTableRow">
+            <Cell>
+                <Text>Editor in Chief</Text>
+            </Cell>
+            <Cell class="CountRow">
+                <Button id="D_editorValue" class="PMButton" onClick="DecrementScore" text="-" />
+                <Text id="editorValue" class="UIInputField" characterValidation="Integer" text="0" onEndEdit="UpdateScore" />
+                <Button id="I_editorValue" class="PMButton" onClick="IncrementScore" text="+" />
+            </Cell>
+            <Cell class="CalcRow">
+                <Text>x1 =</Text>
+                <Text id="editorValue_calc" class="CalculatedValues" characterValidation="Integer" text="0" value="1" onEndEdit="UpdateScore" />
+            </Cell>
+        </Row>
+        <Row class="ScoreTableRow">
+            <Cell>
+                <Text>Deadlines</Text>
+            </Cell>
+            <Cell class="CountRow">
+            </Cell>
+            <Cell class="CalcRow">
+                <Button id="D_deadlineValue" class="PMButton" onClick="DecrementScore" text="-" />
+                <Text id="deadlineValue" class="CalculatedValues" characterValidation="Integer" text="0" value="1" onEndEdit="UpdateScore" />
+                <Button id="I_deadlineValue" class="PMButton" onClick="IncrementScore" text="+" />
+            </Cell>
+        </Row>
+        <Row class="ScoreTableRow">
+            <Cell>
+                <Text>Department Training</Text>
+            </Cell>
+            <Cell class="CountRow">
+            </Cell>
+            <Cell class="CalcRow">
+                <Button id="D_deptValue" class="PMButton" onClick="DecrementScore" text="-" />
+                <Text id="deptValue" class="CalculatedValues" characterValidation="Integer" text="0" value="1" onEndEdit="UpdateScore" />
+                <Button id="I_deptValue" class="PMButton" onClick="IncrementScore" text="+" />
+            </Cell>
+        </Row>
+        <Row class="ScoreTableRow">
+            <Cell>
+                <Text>Public Interest</Text>
+            </Cell>
+            <Cell class="CountRow">
+            </Cell>
+            <Cell class="CalcRow">
+                <Button id="D_relvValue" class="PMButton" onClick="DecrementScore" text="-" />
+                <Text id="relvValue" class="CalculatedValues" characterValidation="Integer" text="0" value="1" onEndEdit="UpdateScore" />
+                <Button id="I_relvValue" class="PMButton" onClick="IncrementScore" text="+" />
+            </Cell>
+        </Row>
+
+        <Row class="ScoreTableRow" color="#E4966F">
+            <Cell>
+                <Text id="TotalLabel" text="Total" class="LargeText" />
+            </Cell>
+            <Cell class="CountRow">
+
+            </Cell>
+            <Cell class="CalcRow">
+              <Text id="totalValue" text="0" class="LargeText" />
+            </Cell>
+        </Row>
+    </TableLayout>
+</Panel>

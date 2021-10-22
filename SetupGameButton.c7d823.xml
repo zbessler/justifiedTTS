@@ -1,0 +1,10 @@
+<button
+    onClick="gameSetup"
+    position="0 0 -30"
+    width="2700"
+    height="800"
+    fontSize="422"
+    color="#70AD6A"
+>
+    Setup Game
+</button>

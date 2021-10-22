@@ -1,0 +1,10 @@
+<button
+    onClick="clearZones"
+    position="0 0 -30"
+    width="2900"
+    height="800"
+    fontSize="422"
+    color="#E4666F"
+>
+    Clean Up
+</button>
